@@ -1,0 +1,22 @@
+{
+    "rewrites": [
+      { "source": "/photos/index.json", "destination": "https://wwy7pbpx2t4k5akh.public.blob.vercel-storage.com/photos/index.json" },
+      { "source": "/photos/:path*", "destination": "https://wwy7pbpx2t4k5akh.public.blob.vercel-storage.com/photos/:path*" }
+    ],
+    "headers": [
+      {
+        "source": "/photos/:path*",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      },
+      {
+        "source": "/photos/index.json",
+        "headers": [
+          { "key": "Cache-Control", "value": "public, max-age=300, s-maxage=300" },
+          { "key": "Access-Control-Allow-Origin", "value": "*" }
+        ]
+      }
+    ]
+  }
